@@ -1,5 +1,22 @@
 # Smart Spreadsheet
 
+## setup
+
+prerequisites:
+  - python 3.8
+  - v18.18.2 ^
+  - npm 9.8.1 ^
+
+
+export OPENAI_API_KEY=... #your key, if you dont have, e-mail me to borrow you one
+
+fastapi dev context_chat.py
+
+cd capix-frontend
+
+npm install
+npm start
+
 ## Introduction
 
 As a **Founding Senior Engineer** at Capix you will lead the the development of the Company’s technical vision and strategy, oversee all the technological development, and help develop and implement the product. This is a very critical role. It is paramount that you are a master of engineering able to ship great software fast. We’re looking for the 10Xers and this project helps us evaluate if you can get the job done. 
