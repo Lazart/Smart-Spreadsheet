@@ -1,0 +1,28 @@
+# Stage 1: Build the React application
+FROM node:14 as build
+
+WORKDIR /app
+
+# Copy package.json and package-lock.json (or yarn.lock) files
+COPY capix-frontend/package.json capix-frontend/package-lock.json* ./
+
+# Install dependencies
+RUN npm install --silent
+
+# Copy the rest of your app's source code from your host to your image filesystem.
+COPY ./capix-frontend .
+
+# Build the production build of the app
+RUN npm run build
+
+# Stage 2: Serve the app with Nginx
+FROM nginx:stable-alpine
+
+# Copy the build output to replace the default nginx contents.
+COPY --from=build /app/build /usr/share/nginx/html
+
+# Expose port 80 to the outer world
+EXPOSE 80
+
+# Start Nginx and keep the process from backgrounding and the container from quitting
+CMD ["nginx", "-g", "daemon off;"]

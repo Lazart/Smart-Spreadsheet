@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  capix-api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.api
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-0}
+    volumes:
+      - ..:/usr/src/app
+  capix-frontend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.frontend
+    ports:
+      - "3000:80"
+    volumes:
+      - ../capix-frontend:/app
+      - /app/node_modules

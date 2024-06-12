@@ -2,20 +2,35 @@
 
 ## setup
 
-prerequisites:
-  - python 3.8
-  - v18.18.2 ^
-  - npm 9.8.1 ^
+  `git clone -b capix_phase1_lazar_tatomirov git@github.com:Lazart/Smart-Spreadsheet.git`
+
+  `cd Smart-Spreadsheet/`
+
+  `export OPENAI_API_KEY=... $your key`
+
+docker:
+
+  `docker compose -f docker/docker-compose.yml up`
+
+  and go to http://localhost:3000/ in your browser
 
 
-export OPENAI_API_KEY=... #your key, if you dont have, e-mail me to borrow you one
+host machine:
 
-fastapi dev context_chat.py
+  prerequisites
+    - python 3.8
+    - node v18.18.2 ^
+    - npm 9.8.1 ^
 
-cd capix-frontend
+  `pip install --no-cache-dir -r requirement.txt`
 
-npm install
-npm start
+  `fastapi dev context_chat.py`
+
+  `cd capix-frontend`
+
+  `npm install`
+  `npm start`
+
 
 ## Introduction
 
